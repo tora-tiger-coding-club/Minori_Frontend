@@ -1,35 +1,12 @@
 import { useState } from 'react';
 import reactLogo from '/react.svg';
 import viteLogo from '/vite.svg';
-import { Global } from '@emotion/react';
 import { css, keyframes } from '@emotion/css';
 
 function App() {
   const [count, setCount] = useState(0);
 
   const C_a = 0;
-
-  const global = css`
-    body,
-    #root {
-      margin: 0;
-      padding: 0;
-      width: 100%; /* 화면 전체 너비 */
-      height: 100%; /* 화면 전체 높이 */
-      display: flex;
-      flex-direction: column; /* 세로 정렬 */
-      justify-content: center; /* 수직 중앙 정렬 */
-      align-items: center; /* 수평 중앙 정렬 */
-      background-color: #f5f5f5; /* 배경색 추가 (선택사항) */
-    }
-
-    #root {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 2rem;
-      text-align: center;
-    }
-  `;
 
   const logospin = keyframes`  
   from {
@@ -41,7 +18,6 @@ function App() {
 
   return (
     <>
-      <Global styles={global} />
       <div>
         <a href='https://vite.dev' target='_blank' rel='noreferrer'>
           <img
