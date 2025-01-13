@@ -27,8 +27,14 @@ const emblaSlide = css`
 const image = css`
   width: 200px;
   hegith: 250px;
+  margin: 0 0;
 `;
 
+const text = css`
+  margin: 0;
+  font-size: 15x;
+  font-weight: bold;
+`;
 /////////////////////////////////////////////////////////
 
 export function Carousel() {
@@ -45,39 +51,51 @@ export function Carousel() {
       <div css={emblaContainer}>
         <div css={emblaSlide}>
           <img src='/img/1.webp' css={image} alt='스즈메의 문단속' />
+          <p css={text}>스즈메의 문단속</p>
         </div>
         <div css={emblaSlide}>
           <img src='/img/1.webp' css={image} alt='스즈메의 문단속' />
+          <p css={text}>스즈메의 문단속</p>
         </div>
         <div css={emblaSlide}>
           <img src='/img/1.webp' css={image} alt='스즈메의 문단속' />
+          <p css={text}>스즈메의 문단속</p>
         </div>
         <div css={emblaSlide}>
           <img src='/img/1.webp' css={image} alt='스즈메의 문단속' />
+          <p css={text}>스즈메의 문단속</p>
         </div>
         <div css={emblaSlide}>
           <img src='/img/1.webp' css={image} alt='스즈메의 문단속' />
+          <p css={text}>스즈메의 문단속</p>
         </div>
         <div css={emblaSlide}>
           <img src='/img/1.webp' css={image} alt='스즈메의 문단속' />
+          <p css={text}>스즈메의 문단속</p>
         </div>
         <div css={emblaSlide}>
           <img src='/img/1.webp' css={image} alt='스즈메의 문단속' />
+          <p css={text}>스즈메의 문단속</p>
         </div>
         <div css={emblaSlide}>
           <img src='/img/1.webp' css={image} alt='스즈메의 문단속' />
+          <p css={text}>스즈메의 문단속</p>
         </div>
         <div css={emblaSlide}>
           <img src='/img/1.webp' css={image} alt='스즈메의 문단속' />
+          <p css={text}>스즈메의 문단속</p>
         </div>
         <div css={emblaSlide}>
           <img src='/img/1.webp' css={image} alt='스즈메의 문단속' />
+          <p css={text}>스즈메의 문단속</p>
         </div>
         <div css={emblaSlide}>
           <img src='/img/1.webp' css={image} alt='스즈메의 문단속' />
+          <p css={text}>스즈메의 문단속</p>
         </div>
         <div css={emblaSlide}>
           <img src='/img/2.webp' css={image} alt='스즈메의 문단속' />
+          <p css={text}>트라페지움</p>
         </div>
       </div>
     </div>
