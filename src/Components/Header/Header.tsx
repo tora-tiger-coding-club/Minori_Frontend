@@ -12,9 +12,8 @@ const MainContainer = css`
   flex-direction: column; /* 세로 정렬 */
   justify-content: center; /* 세로 가운데 정렬 */
   align-items: center; /* 가로 가운데 정렬 */
-  height: 100vh; /* 전체 화면 높이 */
   width: 100%; /* 전체 화면 너비 */
-  margin: 0; /* 외부 여백 제거 */
+  margin: 0px 0px 50px 0px; /* 외부 여백 제거 */
 `;
 
 const HeaderStyle = css`

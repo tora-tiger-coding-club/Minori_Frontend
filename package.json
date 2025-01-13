@@ -19,6 +19,7 @@
     "axios": "^1.7.9",
     "date-fns": "^4.1.0",
     "dotenv": "^16.4.7",
+    "embla-carousel-react": "^8.5.2",
     "js-cookie": "^3.0.5",
     "nanoid": "^5.0.9",
     "query-string": "^9.1.1",
