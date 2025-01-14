@@ -17,7 +17,7 @@ const txt = css`
 `;
 
 const txt2 = css`
-  width: 70%;
+  width: 68%;
   font-size: 30px;
 `;
 
@@ -34,6 +34,7 @@ const MainPage: React.FC = () => {
       <div css={carouselContainer}>
         <Carousel />
       </div>
+      <h1 css={txt2}>추천 작품</h1>
     </>
   );
 };

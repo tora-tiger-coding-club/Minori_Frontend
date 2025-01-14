@@ -9,7 +9,7 @@ const embla = css`
   display: flex;
   justify-content: center;
   aligh-items: center;
-  width: 70%;
+  width: 65%;
 `;
 
 const emblaContainer = css`
