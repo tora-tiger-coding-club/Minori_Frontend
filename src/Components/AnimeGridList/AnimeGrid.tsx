@@ -1,0 +1,260 @@
+/** @jsxImportSource @emotion/react */
+import { css } from '@emotion/react';
+
+//@emotion CSS
+
+const container = css`
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+`;
+
+const image = css`
+  width: 160px;
+  height: 208px;
+`;
+
+const text = css`
+  color: #000;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  margin: 0;
+`;
+
+const text2 = css`
+  color: #fca;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  margin: 0;
+`;
+
+export function AnimeGrid() {
+  return (
+    <div css={container}>
+      <div>
+        <img css={image} src='/img/1.webp' alt='스즈메의 문단속' />
+        <p css={text}>스즈메의 문단속</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/2.webp' alt='트라페지움' />
+        <p css={text}>트라페지움</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/1.webp' alt='스즈메의 문단속' />
+        <p css={text}>스즈메의 문단속</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/2.webp' alt='트라페지움' />
+        <p css={text}>트라페지움</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/1.webp' alt='스즈메의 문단속' />
+        <p css={text}>스즈메의 문단속</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/2.webp' alt='트라페지움' />
+        <p css={text}>트라페지움</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/1.webp' alt='스즈메의 문단속' />
+        <p css={text}>스즈메의 문단속</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/2.webp' alt='트라페지움' />
+        <p css={text}>트라페지움</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/1.webp' alt='스즈메의 문단속' />
+        <p css={text}>스즈메의 문단속</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/2.webp' alt='트라페지움' />
+        <p css={text}>트라페지움</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/1.webp' alt='스즈메의 문단속' />
+        <p css={text}>스즈메의 문단속</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/2.webp' alt='트라페지움' />
+        <p css={text}>트라페지움</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/1.webp' alt='스즈메의 문단속' />
+        <p css={text}>스즈메의 문단속</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/2.webp' alt='트라페지움' />
+        <p css={text}>트라페지움</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/1.webp' alt='스즈메의 문단속' />
+        <p css={text}>스즈메의 문단속</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/2.webp' alt='트라페지움' />
+        <p css={text}>트라페지움</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/1.webp' alt='스즈메의 문단속' />
+        <p css={text}>스즈메의 문단속</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/2.webp' alt='트라페지움' />
+        <p css={text}>트라페지움</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/1.webp' alt='스즈메의 문단속' />
+        <p css={text}>스즈메의 문단속</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/2.webp' alt='트라페지움' />
+        <p css={text}>트라페지움</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/1.webp' alt='스즈메의 문단속' />
+        <p css={text}>스즈메의 문단속</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/2.webp' alt='트라페지움' />
+        <p css={text}>트라페지움</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/1.webp' alt='스즈메의 문단속' />
+        <p css={text}>스즈메의 문단속</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/2.webp' alt='트라페지움' />
+        <p css={text}>트라페지움</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/1.webp' alt='스즈메의 문단속' />
+        <p css={text}>스즈메의 문단속</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/2.webp' alt='트라페지움' />
+        <p css={text}>트라페지움</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/1.webp' alt='스즈메의 문단속' />
+        <p css={text}>스즈메의 문단속</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/2.webp' alt='트라페지움' />
+        <p css={text}>트라페지움</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/1.webp' alt='스즈메의 문단속' />
+        <p css={text}>스즈메의 문단속</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/2.webp' alt='트라페지움' />
+        <p css={text}>트라페지움</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/1.webp' alt='스즈메의 문단속' />
+        <p css={text}>스즈메의 문단속</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/2.webp' alt='트라페지움' />
+        <p css={text}>트라페지움</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/1.webp' alt='스즈메의 문단속' />
+        <p css={text}>스즈메의 문단속</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/2.webp' alt='트라페지움' />
+        <p css={text}>트라페지움</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/1.webp' alt='스즈메의 문단속' />
+        <p css={text}>스즈메의 문단속</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/2.webp' alt='트라페지움' />
+        <p css={text}>트라페지움</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/1.webp' alt='스즈메의 문단속' />
+        <p css={text}>스즈메의 문단속</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/2.webp' alt='트라페지움' />
+        <p css={text}>트라페지움</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/1.webp' alt='스즈메의 문단속' />
+        <p css={text}>스즈메의 문단속</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/2.webp' alt='트라페지움' />
+        <p css={text}>트라페지움</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/1.webp' alt='스즈메의 문단속' />
+        <p css={text}>스즈메의 문단속</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/2.webp' alt='트라페지움' />
+        <p css={text}>트라페지움</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/1.webp' alt='스즈메의 문단속' />
+        <p css={text}>스즈메의 문단속</p>
+        <p css={text2}>1화</p>
+      </div>
+      <div>
+        <img css={image} src='/img/2.webp' alt='트라페지움' />
+        <p css={text}>트라페지움</p>
+        <p css={text2}>1화</p>
+      </div>
+    </div>
+  );
+}

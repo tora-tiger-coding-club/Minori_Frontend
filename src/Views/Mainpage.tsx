@@ -3,6 +3,7 @@ import React from 'react';
 import Header from '../Components/Header/Header';
 import { css } from '@emotion/react';
 import Carousel from '../Components/Carousel/Carousel';
+import { AnimeGrid } from '../Components/AnimeGridList/AnimeGrid';
 
 const carouselContainer = css`
   display: flex;
@@ -17,8 +18,12 @@ const txt = css`
 `;
 
 const txt2 = css`
-  width: 68%;
-  font-size: 30px;
+  width: 70%;
+  font-size: 24px;
+`;
+
+const mtop50 = css`
+  margin-top: 50px;
 `;
 
 const MainPage: React.FC = () => {
@@ -34,7 +39,12 @@ const MainPage: React.FC = () => {
       <div css={carouselContainer}>
         <Carousel />
       </div>
-      <h1 css={txt2}>추천 작품</h1>
+      <div css={[txt, mtop50]}>
+        <h1 css={txt2}>감상중인 작품</h1>
+      </div>
+      <div css={carouselContainer}>
+        <AnimeGrid />
+      </div>
     </>
   );
 };

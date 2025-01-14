@@ -9,7 +9,7 @@ const embla = css`
   display: flex;
   justify-content: center;
   aligh-items: center;
-  width: 65%;
+  width: 70%;
 `;
 
 const emblaContainer = css`
@@ -25,14 +25,14 @@ const emblaSlide = css`
 `;
 
 const image = css`
-  width: 200px;
-  hegith: 250px;
+  width: 230px;
+  hegith: 300px;
   margin: 0 0;
 `;
 
 const text = css`
   margin: 0;
-  font-size: 15x;
+  font-size: 18px;
   font-weight: bold;
 `;
 /////////////////////////////////////////////////////////
