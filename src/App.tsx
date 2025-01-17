@@ -1,5 +1,5 @@
 import { useState, React } from 'react';
-import MainPage from './views/MainPage';
+import MainPage from './Views/Mainpage';
 const App: React.FC = () => {
   return (
     <div className='app'>
