@@ -1,4 +1,4 @@
-import { useState, React } from 'react';
+import React from 'react';
 import MainPage from './Views/Mainpage';
 const App: React.FC = () => {
   return (
