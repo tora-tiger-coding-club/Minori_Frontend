@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { css } from '@emotion/react';
 import Dropdown from '../../DropdownSuggestion/Dropdown';
+import { Link } from 'react-router-dom';
 
 interface HeaderProps {
   userName?: string; // 사용자 이름 (optional)
@@ -36,7 +37,7 @@ const HeaderItem = css`
 `;
 
 const LogoStyle = css`
-  h1 {
+  a {
     color: #fca;
     text-align: center;
     font-family: Pretendard;
@@ -131,7 +132,7 @@ const Header: React.FC<HeaderProps> = ({ userName, onNotificationClick }) => {
       <div css={HeaderStyle}>
         <div css={HeaderItem}>
           <div css={LogoStyle}>
-            <h1>minori</h1>
+            <Link to='/'>minori</Link>
           </div>
           <div css={CategoryStyle}>
             <h2>홈</h2>
