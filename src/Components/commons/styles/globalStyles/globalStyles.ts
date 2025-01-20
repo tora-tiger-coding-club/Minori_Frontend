@@ -32,4 +32,8 @@ export const globalStyles = css`
   select {
     appearance: none;
   }
+  button {
+    background-color: #fff;
+    cursor: pointer;
+  }
 `;
