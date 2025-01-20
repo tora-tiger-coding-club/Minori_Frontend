@@ -1,5 +1,5 @@
 import MainPage from '../views/MainPage';
-import Review from '../views/Review';
+import ReviewPage from '../views/ReviewPage';
 
 const RouteList = [
   {
@@ -10,7 +10,7 @@ const RouteList = [
   {
     path: '/review',
     name: 'review',
-    component: Review,
+    component: ReviewPage,
   },
 ];
 
