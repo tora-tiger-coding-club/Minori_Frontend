@@ -3,7 +3,7 @@ import React from 'react';
 import { css } from '@emotion/react';
 import Carousel from '../components/Carousel/Carousel';
 import { AnimeGrid } from '../components/AnimeGridList/AnimeGrid';
-import CategorySelection from '../components/CategorySelection/CategorySelection';
+import CategorySelection from '../components/CategorySelection';
 
 const carouselContainer = css`
   display: flex;
@@ -53,7 +53,7 @@ const MainPage: React.FC = () => {
       <div css={[txt, ContentBottomMargin]}>
         <h1 css={txt2}>추천 작품</h1>
       </div>
-      <CategorySelection categoryList={categoryList} />
+      <CategorySelection onClick={() => {}} categoryList={categoryList} />
       <div css={[carouselContainer, ContentTopMargin]}>
         <Carousel />
       </div>

@@ -6,13 +6,15 @@ import { css } from '@emotion/react';
 const container = css`
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-rows: auto;
   gap: 10px;
 `;
 
 const image = css`
-  width: 160px;
-  height: 208px;
+  width: 100%;
+  aspect-ratio: 160/208;
+  max-width: 322px;
 `;
 
 const text = css`
