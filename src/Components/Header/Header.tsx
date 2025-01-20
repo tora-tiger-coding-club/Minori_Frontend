@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
-import React from 'react';
+import React, { useState } from 'react';
 import { css } from '@emotion/react';
+import Dropdown from '../../DropdownSuggestion/Dropdown';
 
 interface HeaderProps {
   userName?: string; // 사용자 이름 (optional)
@@ -9,45 +10,65 @@ interface HeaderProps {
 
 const MainContainer = css`
   display: flex;
-  flex-direction: column; /* 세로 정렬 */
-  justify-content: center; /* 세로 가운데 정렬 */
-  align-items: center; /* 가로 가운데 정렬 */
-  width: 100%; /* 전체 화면 너비 */
-  margin: 0px 0px 50px 0px; /* 외부 여백 제거 */
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0px 0px 0px 0px;
+  height: 120px;
+  flex-shrink: 0;
 `;
 
 const HeaderStyle = css`
   display: flex;
+  height: 100%;
+  max-width: 1312px;
+  padding: 0 16px;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0px;
   background-color: #fff;
-  border-bottom: 1px solid #ddd;
-  width: 80%;
+`;
+
+const HeaderItem = css`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 const LogoStyle = css`
   h1 {
-    font-size: 24px;
-    color: #ffccaa; /* 원하는 브랜드 색상으로 변경 가능 */
-    padding: 0px 10px;
+    color: #fca;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 0 30px 0 0;
   }
 `;
 
 const CategoryStyle = css`
   h2 {
-    font-size: 16px;
-    color: black;
-    padding: 0px 10px;
+    color: #1e1e1e;
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 0 20px;
   }
 `;
 
 const SearchBarStyle = css`
+  position: relative;
   flex: 1;
-  margin: 0 20px;
+  display: flex;
+  justify-content: flex-end;
 
   input {
-    width: 30%;
+    width: 100%;
+    height: 25px;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 20px;
@@ -56,7 +77,9 @@ const SearchBarStyle = css`
 `;
 
 const UserInfoStyle = css`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 10px;
   align-items: center;
 `;
 
@@ -80,40 +103,71 @@ const ProfileStyle = css`
 `;
 
 const Header: React.FC<HeaderProps> = ({ userName, onNotificationClick }) => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [suggestions, setSuggestions] = useState<string[]>([]);
+  const allSuggestions = ['작품1', '작품2', '작품3', '작품4', '작품5'];
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setSearchTerm(value);
+
+    if (value) {
+      const filteredSuggestions = allSuggestions.filter((suggestion) =>
+        suggestion.toLowerCase().includes(value.toLowerCase()),
+      );
+      setSuggestions(filteredSuggestions);
+    } else {
+      setSuggestions([]);
+    }
+  };
+
+  const handleSuggestionClick = (suggestion: string) => {
+    setSearchTerm(suggestion);
+    setSuggestions([]);
+  };
+
   return (
-    <div css={MainContainer}>
-      <header css={HeaderStyle}>
-        <div css={LogoStyle}>
-          <h1>minori</h1>
-        </div>
-        <div css={CategoryStyle}>
-          <h2>홈</h2>
-        </div>
-        <div css={CategoryStyle}>
-          <h2>작품 탐색</h2>
-        </div>
-        <div css={CategoryStyle}>
-          <h2>홈</h2>
-        </div>
-        <div css={CategoryStyle}>
-          <h2>작품 탐색</h2>
-        </div>
-        <div css={SearchBarStyle}>
-          <input type='text' placeholder='작품을 입력하세요...' />
-        </div>
-        <div css={UserInfoStyle}>
-          <button
-            css={NotificationIconStyle}
-            onClick={onNotificationClick || (() => alert('알림 버튼 클릭됨'))}
-          >
-            🔔
-          </button>
-          <div css={ProfileStyle} title={userName || '사용자'}>
-            💁‍♀️
+    <header css={MainContainer}>
+      <div css={HeaderStyle}>
+        <div css={HeaderItem}>
+          <div css={LogoStyle}>
+            <h1>minori</h1>
+          </div>
+          <div css={CategoryStyle}>
+            <h2>홈</h2>
+          </div>
+          <div css={CategoryStyle}>
+            <h2>작품 탐색</h2>
+          </div>
+          <div css={CategoryStyle}>
+            <h2>내 기록</h2>
           </div>
         </div>
-      </header>
-    </div>
+        <div css={HeaderItem}>
+          <div css={SearchBarStyle}>
+            <input
+              type='text'
+              placeholder='작품을 입력하세요...'
+              value={searchTerm}
+              onChange={handleSearchChange}
+            />
+            {suggestions.length > 0 && (
+              <Dropdown suggestions={suggestions} onSuggestionClick={handleSuggestionClick} />
+            )}
+          </div>
+          <div css={UserInfoStyle}>
+            <button
+              css={NotificationIconStyle}
+              onClick={onNotificationClick || (() => alert('알림 버튼 클릭됨'))}
+            >
+              🔔
+            </button>
+            <div css={ProfileStyle} title={userName || '사용자'}></div>
+            <div>{userName || '사용자'}</div>
+          </div>
+        </div>
+      </div>
+    </header>
   );
 };
 

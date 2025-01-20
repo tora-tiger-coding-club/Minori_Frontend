@@ -9,7 +9,7 @@ const embla = css`
   display: flex;
   justify-content: center;
   aligh-items: center;
-  width: 70%;
+  width: 100%;
 `;
 
 const emblaContainer = css`
@@ -19,20 +19,22 @@ const emblaContainer = css`
 `;
 
 const emblaSlide = css`
-  flex: 0 0 20%;
-  min-width: 0;
-  margin: 0 0;
+  max-width: 230px;
+  max-height 330px:
+  width: 100%;
+  hegiht: 100%;
+  margin: 0 16px 0 0;
 `;
 
 const image = css`
-  width: 200px;
-  hegith: 250px;
+  width: 230px;
+  hegith: 300px;
   margin: 0 0;
 `;
 
 const text = css`
   margin: 0;
-  font-size: 15x;
+  font-size: 18px;
   font-weight: bold;
 `;
 /////////////////////////////////////////////////////////
