@@ -1,16 +1,14 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
-import Header from '../Components/Header/Header';
 import { css } from '@emotion/react';
-import Carousel from '../Components/Carousel/Carousel';
-import { AnimeGrid } from '../Components/AnimeGridList/AnimeGrid';
+import Carousel from '../components/Carousel/Carousel';
+import { AnimeGrid } from '../components/AnimeGridList/AnimeGrid';
 
 const carouselContainer = css`
   display: flex;
   justify-content: center;
   align-items: center;
 `;
-
 const txt = css`
   display: flex;
   justify-content: center;
@@ -27,12 +25,8 @@ const mtop50 = css`
 `;
 
 const MainPage: React.FC = () => {
-  const handleNotificationClick = () => {
-    console.log('알림 버튼이 클릭되었습니다.');
-  };
   return (
     <>
-      <Header userName='홍길동' onNotificationClick={handleNotificationClick} />
       <div css={txt}>
         <h1 css={txt2}>추천 작품</h1>
       </div>
