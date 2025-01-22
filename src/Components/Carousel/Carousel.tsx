@@ -8,7 +8,7 @@ const embla = css`
   overflow: hidden;
   display: flex;
   justify-content: center;
-  aligh-items: center;
+  align-items: center;
   width: 100%;
 `;
 
@@ -20,15 +20,15 @@ const emblaContainer = css`
 
 const emblaSlide = css`
   max-width: 230px;
-  max-height 330px:
+  max-height: 330px;
   width: 100%;
-  hegiht: 100%;
+  height: 100%;
   margin: 0 16px 0 0;
 `;
 
 const image = css`
   width: 230px;
-  hegith: 300px;
+  height: 300px;
   margin: 0 0;
 `;
 

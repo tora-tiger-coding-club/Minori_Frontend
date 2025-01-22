@@ -1,5 +1,6 @@
 import React from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { BrowserRouter } from 'react-router-dom';
 
 import Header from './components/Header';
 import Router from './routes';
@@ -11,11 +12,13 @@ const App: React.FC = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Global styles={globalStyles} />
-      <div className='app'>
-        <Header />
-        <Router />
-      </div>
+      <BrowserRouter>
+        <Global styles={globalStyles} />
+        <div className='app'>
+          <Header />
+          <Router />
+        </div>
+      </BrowserRouter>
     </QueryClientProvider>
   );
 };

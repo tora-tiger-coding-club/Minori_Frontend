@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
+import { COLORS } from '@/components/commons/styles/colors';
 
 //@emotion CSS
 
@@ -18,8 +19,7 @@ const image = css`
 `;
 
 const text = css`
-  color: #000;
-  font-family: Pretendard;
+  color: ${COLORS.TEXT.PRIMARY};
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
@@ -27,8 +27,7 @@ const text = css`
 `;
 
 const text2 = css`
-  color: #fca;
-  font-family: Pretendard;
+  color: ${COLORS.PRIMARY};
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
