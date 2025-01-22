@@ -8,6 +8,7 @@ interface ArticleProps {
 
 const ArticleStyle = css`
   display: flex;
+  position: relative;
   flex-direction: column;
   max-width: 1312px;
   width: 100%;

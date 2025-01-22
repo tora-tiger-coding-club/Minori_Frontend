@@ -5,6 +5,7 @@ export const globalStyles = css`
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    font-family: Pretendard;
   }
   li {
     list-style: none;
@@ -17,6 +18,9 @@ export const globalStyles = css`
   input {
     -webkit-appearance: none;
     -webkit-border-radius: 0;
+    &:focus {
+      outline: none;
+    }
   }
 
   textarea {

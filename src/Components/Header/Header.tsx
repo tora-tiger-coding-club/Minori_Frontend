@@ -1,10 +1,11 @@
 /** @jsxImportSource @emotion/react */
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { css } from '@emotion/react';
 import Dropdown from '../DropdownSuggestion/Dropdown';
-import { Link } from 'react-router-dom';
 import Alert from '../../assets/svgs/alert.svg';
+import Search from '../../assets/svgs/search.svg';
+import DownArrow from '../../assets/svgs/down-arrow.svg';
 
 interface HeaderProps {
   userName?: string; // 사용자 이름 (optional)
@@ -42,7 +43,6 @@ const LogoStyle = css`
   a {
     color: #fca;
     text-align: center;
-    font-family: Pretendard;
     font-size: 36px;
     font-style: normal;
     font-weight: 700;
@@ -64,7 +64,6 @@ const LogoStyle = css`
 const LinkStyle = css`
   a {
     color: #1e1e1e;
-    font-family: Pretendard;
     font-size: 15px;
     font-style: normal;
     font-weight: 700;
@@ -93,13 +92,33 @@ const SearchBarStyle = css`
     border: 1px solid #ccc;
     border-radius: 20px;
     font-size: 14px;
+    transition: all 0.2s ease-in-out;
+
+    &::placeholder {
+      size: 14px;
+      color: #cecccd;
+    }
+    &:focus {
+      border-color: #fca;
+      box-shadow: 0 0 0 4px rgba(255, 204, 170, 0.25);
+    }
+  }
+  img {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    pointer-events: none;
   }
 `;
 
 const UserInfoStyle = css`
+  margin-left: 16px;
   display: grid;
-  grid-template-columns: repeat(3, auto);
-  gap: 10px;
+  grid-template-columns: repeat(4, auto);
+  gap: 16px;
   align-items: center;
 `;
 
@@ -108,7 +127,6 @@ const NotificationIconStyle = css`
   border: none;
   font-size: 20px;
   cursor: pointer;
-  margin-right: 10px;
 `;
 
 const ProfileStyle = css`
@@ -174,6 +192,7 @@ const Header: React.FC<HeaderProps> = ({ userName, onNotificationClick }) => {
               value={searchTerm}
               onChange={handleSearchChange}
             />
+            <img src={Search} alt='검색' />
             {suggestions.length > 0 && (
               <Dropdown suggestions={suggestions} onSuggestionClick={handleSuggestionClick} />
             )}
@@ -183,10 +202,11 @@ const Header: React.FC<HeaderProps> = ({ userName, onNotificationClick }) => {
               css={NotificationIconStyle}
               onClick={onNotificationClick || (() => alert('알림 버튼 클릭됨'))}
             >
-              <img src={Alert} alt='' />
+              <img src={Alert} alt='알림' />
             </button>
             <div css={ProfileStyle} title={userName || '사용자'}></div>
             <div>{userName || '사용자'}</div>
+            <img src={DownArrow} alt='펼치기' />
           </div>
         </div>
       </div>
