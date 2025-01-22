@@ -6,6 +6,7 @@ import Dropdown from '../DropdownSuggestion/Dropdown';
 import Alert from '../../assets/svgs/alert.svg';
 import Search from '../../assets/svgs/search.svg';
 import DownArrow from '../../assets/svgs/down-arrow.svg';
+import { COLORS } from '@/components/commons/styles/colors';
 
 interface HeaderProps {
   userName?: string; // 사용자 이름 (optional)
@@ -41,7 +42,7 @@ const HeaderItem = css`
 
 const LogoStyle = css`
   a {
-    color: #fca;
+    color: ${COLORS.PRIMARY};
     text-align: center;
     font-size: 36px;
     font-style: normal;
@@ -53,17 +54,17 @@ const LogoStyle = css`
 
     &:hover {
       text-shadow:
-        0 0 10px rgba(255, 204, 170, 0.25),
-        0 0 20px rgba(255, 204, 170, 0.15),
-        0 0 30px rgba(255, 204, 170, 0.1),
-        1px 1px 2px rgba(0, 0, 0, 0.05);
+        0 0 10px ${COLORS.PRIMARY_SHADOW.LIGHT},
+        0 0 20px ${COLORS.PRIMARY_SHADOW.MEDIUM},
+        0 0 30px ${COLORS.PRIMARY_SHADOW.DARK},
+        1px 1px 2px ${COLORS.SHADOW.DEFAULT};
     }
   }
 `;
 
 const LinkStyle = css`
   a {
-    color: #1e1e1e;
+    color: ${COLORS.TEXT.PRIMARY};
     font-size: 15px;
     font-style: normal;
     font-weight: 700;
@@ -71,10 +72,10 @@ const LinkStyle = css`
     margin: 0 20px;
 
     &:hover {
-      color: rgba(129, 129, 129, 0.8);
+      color: ${COLORS.TEXT.SECONDARY};
     }
     &.active {
-      color: #fca;
+      color: ${COLORS.PRIMARY};
     }
   }
 `;
@@ -89,18 +90,17 @@ const SearchBarStyle = css`
     width: 300px;
     height: 35px;
     padding: 16px;
-    border: 1px solid #ccc;
+    border: 1px solid ${COLORS.BORDER.DEFAULT};
     border-radius: 20px;
     font-size: 14px;
     transition: all 0.2s ease-in-out;
 
     &::placeholder {
-      size: 14px;
-      color: #cecccd;
+      color: ${COLORS.TEXT.PLACEHOLDER};
     }
     &:focus {
-      border-color: #fca;
-      box-shadow: 0 0 0 4px rgba(255, 204, 170, 0.25);
+      border-color: ${COLORS.PRIMARY};
+      box-shadow: 0 0 0 4px ${COLORS.PRIMARY_SHADOW.LIGHT};
     }
   }
   img {
@@ -132,7 +132,7 @@ const NotificationIconStyle = css`
 const ProfileStyle = css`
   width: 32px;
   height: 32px;
-  background-color: #ccc;
+  background-color: ${COLORS.BACKGROUND.GRAY};
   border-radius: 50%;
   display: flex;
   justify-content: center;

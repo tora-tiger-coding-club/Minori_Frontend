@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import { COLORS } from '@/components/commons/styles/colors';
 
 export const globalStyles = css`
   * {
@@ -12,7 +13,7 @@ export const globalStyles = css`
   }
   a {
     text-decoration: none;
-    color: black;
+    color: ${COLORS.TEXT.PRIMARY};
   }
 
   input {
@@ -37,7 +38,7 @@ export const globalStyles = css`
     appearance: none;
   }
   button {
-    background-color: #fff;
+    background-color: ${COLORS.BACKGROUND.WHITE};
     cursor: pointer;
   }
 `;
