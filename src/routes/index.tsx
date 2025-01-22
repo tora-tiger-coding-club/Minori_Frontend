@@ -8,7 +8,11 @@ const Router: React.FC = () => {
     <Article>
       <Routes>
         {RouteList.map((route) => (
-          <Route path={route.path} key={route.name} element={<route.component />} />
+          <Route
+            path={route.path}
+            key={`${route.name}:${route.path}`}
+            element={<route.component />}
+          />
         ))}
       </Routes>
     </Article>

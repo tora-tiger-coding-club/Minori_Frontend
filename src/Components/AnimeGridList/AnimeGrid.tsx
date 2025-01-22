@@ -19,7 +19,6 @@ const image = css`
 
 const text = css`
   color: #000;
-  font-family: Pretendard;
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
@@ -28,7 +27,6 @@ const text = css`
 
 const text2 = css`
   color: #fca;
-  font-family: Pretendard;
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
