@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import React, { useState } from 'react';
+import { COLORS } from '@/components/commons/styles/colors';
 
 interface CategoryProps {
   categoryList: CategoryItem[];
@@ -23,7 +24,7 @@ const CategoryItemStyle = css`
   padding: 0 14px;
   align-items: center;
   justify-content: center;
-  border: 1px solid #e0e0e0;
+  border: 1px solid ${COLORS.CATEGORY.BORDER};
   font-size: 14px;
   font-weight: bold;
   margin-right: 8px;
@@ -31,13 +32,13 @@ const CategoryItemStyle = css`
   transition: background-color 0.3s ease;
 
   &.selected {
-    border-color: #ffccaa;
-    background-color: #ffccaa;
-    color: #fff;
+    border-color: ${COLORS.PRIMARY};
+    background-color: ${COLORS.PRIMARY};
+    color: ${COLORS.BACKGROUND.WHITE};
   }
 
   &:hover {
-    background-color: #ffe5d5;
+    background-color: ${COLORS.HOVER.LIGHT};
   }
 `;
 
