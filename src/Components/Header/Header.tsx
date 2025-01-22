@@ -1,8 +1,10 @@
 /** @jsxImportSource @emotion/react */
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { css } from '@emotion/react';
-import Dropdown from '../../DropdownSuggestion/Dropdown';
+import Dropdown from '../DropdownSuggestion/Dropdown';
 import { Link } from 'react-router-dom';
+import Alert from '../../assets/svgs/alert.svg';
 
 interface HeaderProps {
   userName?: string; // 사용자 이름 (optional)
@@ -46,18 +48,35 @@ const LogoStyle = css`
     font-weight: 700;
     line-height: normal;
     margin: 0 30px 0 0;
+
+    transition: text-shadow 0.3s ease-in-out;
+
+    &:hover {
+      text-shadow:
+        0 0 10px rgba(255, 204, 170, 0.25),
+        0 0 20px rgba(255, 204, 170, 0.15),
+        0 0 30px rgba(255, 204, 170, 0.1),
+        1px 1px 2px rgba(0, 0, 0, 0.05);
+    }
   }
 `;
 
-const CategoryStyle = css`
-  h2 {
+const LinkStyle = css`
+  a {
     color: #1e1e1e;
     font-family: Pretendard;
-    font-size: 14px;
+    font-size: 15px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     margin: 0 20px;
+
+    &:hover {
+      color: rgba(129, 129, 129, 0.8);
+    }
+    &.active {
+      color: #fca;
+    }
   }
 `;
 
@@ -68,12 +87,12 @@ const SearchBarStyle = css`
   justify-content: flex-end;
 
   input {
-    width: 100%;
-    height: 25px;
-    padding: 8px;
+    width: 300px;
+    height: 35px;
+    padding: 16px;
     border: 1px solid #ccc;
     border-radius: 20px;
-    font-size: 16px;
+    font-size: 14px;
   }
 `;
 
@@ -104,6 +123,8 @@ const ProfileStyle = css`
 `;
 
 const Header: React.FC<HeaderProps> = ({ userName, onNotificationClick }) => {
+  const location = useLocation();
+
   const [searchTerm, setSearchTerm] = useState('');
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const allSuggestions = ['작품1', '작품2', '작품3', '작품4', '작품5'];
@@ -134,21 +155,22 @@ const Header: React.FC<HeaderProps> = ({ userName, onNotificationClick }) => {
           <div css={LogoStyle}>
             <Link to='/'>minori</Link>
           </div>
-          <div css={CategoryStyle}>
-            <h2>홈</h2>
+          <div css={LinkStyle}>
+            <Link className={location.pathname === '/search' ? 'active' : ''} to='/search'>
+              작품 탐색
+            </Link>
           </div>
-          <div css={CategoryStyle}>
-            <h2>작품 탐색</h2>
-          </div>
-          <div css={CategoryStyle}>
-            <h2>내 기록</h2>
+          <div css={LinkStyle}>
+            <Link className={location.pathname === '/record' ? 'active' : ''} to='/record'>
+              내 기록
+            </Link>
           </div>
         </div>
         <div css={HeaderItem}>
           <div css={SearchBarStyle}>
             <input
               type='text'
-              placeholder='작품을 입력하세요...'
+              placeholder='제목을 입력하세요.'
               value={searchTerm}
               onChange={handleSearchChange}
             />
@@ -161,7 +183,7 @@ const Header: React.FC<HeaderProps> = ({ userName, onNotificationClick }) => {
               css={NotificationIconStyle}
               onClick={onNotificationClick || (() => alert('알림 버튼 클릭됨'))}
             >
-              🔔
+              <img src={Alert} alt='' />
             </button>
             <div css={ProfileStyle} title={userName || '사용자'}></div>
             <div>{userName || '사용자'}</div>
