@@ -1,8 +1,12 @@
 /** @jsxImportSource @emotion/react */
 import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { css } from '@emotion/react';
-import Dropdown from '../../DropdownSuggestion/Dropdown';
-import { Link } from 'react-router-dom';
+import Dropdown from '../DropdownSuggestion/Dropdown';
+import Alert from '../../assets/svgs/alert.svg';
+import Search from '../../assets/svgs/search.svg';
+import DownArrow from '../../assets/svgs/down-arrow.svg';
+import { COLORS } from '@/components/commons/styles/colors';
 
 interface HeaderProps {
   userName?: string; // 사용자 이름 (optional)
@@ -38,26 +42,41 @@ const HeaderItem = css`
 
 const LogoStyle = css`
   a {
-    color: #fca;
+    color: ${COLORS.PRIMARY};
     text-align: center;
-    font-family: Pretendard;
     font-size: 36px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     margin: 0 30px 0 0;
+
+    transition: text-shadow 0.3s ease-in-out;
+
+    &:hover {
+      text-shadow:
+        0 0 10px ${COLORS.PRIMARY_SHADOW.LIGHT},
+        0 0 20px ${COLORS.PRIMARY_SHADOW.MEDIUM},
+        0 0 30px ${COLORS.PRIMARY_SHADOW.DARK},
+        1px 1px 2px ${COLORS.SHADOW.DEFAULT};
+    }
   }
 `;
 
-const CategoryStyle = css`
-  h2 {
-    color: #1e1e1e;
-    font-family: Pretendard;
-    font-size: 14px;
+const LinkStyle = css`
+  a {
+    color: ${COLORS.TEXT.PRIMARY};
+    font-size: 15px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     margin: 0 20px;
+
+    &:hover {
+      color: ${COLORS.TEXT.SECONDARY};
+    }
+    &.active {
+      color: ${COLORS.PRIMARY};
+    }
   }
 `;
 
@@ -68,19 +87,38 @@ const SearchBarStyle = css`
   justify-content: flex-end;
 
   input {
-    width: 100%;
-    height: 25px;
-    padding: 8px;
-    border: 1px solid #ccc;
+    width: 300px;
+    height: 35px;
+    padding: 16px;
+    border: 1px solid ${COLORS.BORDER.DEFAULT};
     border-radius: 20px;
-    font-size: 16px;
+    font-size: 14px;
+    transition: all 0.2s ease-in-out;
+
+    &::placeholder {
+      color: ${COLORS.TEXT.PLACEHOLDER};
+    }
+    &:focus {
+      border-color: ${COLORS.PRIMARY};
+      box-shadow: 0 0 0 4px ${COLORS.PRIMARY_SHADOW.LIGHT};
+    }
+  }
+  img {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    pointer-events: none;
   }
 `;
 
 const UserInfoStyle = css`
+  margin-left: 16px;
   display: grid;
-  grid-template-columns: repeat(3, auto);
-  gap: 10px;
+  grid-template-columns: repeat(4, auto);
+  gap: 16px;
   align-items: center;
 `;
 
@@ -89,13 +127,12 @@ const NotificationIconStyle = css`
   border: none;
   font-size: 20px;
   cursor: pointer;
-  margin-right: 10px;
 `;
 
 const ProfileStyle = css`
   width: 32px;
   height: 32px;
-  background-color: #ccc;
+  background-color: ${COLORS.BACKGROUND.GRAY};
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -104,6 +141,8 @@ const ProfileStyle = css`
 `;
 
 const Header: React.FC<HeaderProps> = ({ userName, onNotificationClick }) => {
+  const location = useLocation();
+
   const [searchTerm, setSearchTerm] = useState('');
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const allSuggestions = ['작품1', '작품2', '작품3', '작품4', '작품5'];
@@ -134,24 +173,26 @@ const Header: React.FC<HeaderProps> = ({ userName, onNotificationClick }) => {
           <div css={LogoStyle}>
             <Link to='/'>minori</Link>
           </div>
-          <div css={CategoryStyle}>
-            <h2>홈</h2>
+          <div css={LinkStyle}>
+            <Link className={location.pathname === '/search' ? 'active' : ''} to='/search'>
+              작품 탐색
+            </Link>
           </div>
-          <div css={CategoryStyle}>
-            <h2>작품 탐색</h2>
-          </div>
-          <div css={CategoryStyle}>
-            <h2>내 기록</h2>
+          <div css={LinkStyle}>
+            <Link className={location.pathname === '/record' ? 'active' : ''} to='/record'>
+              내 기록
+            </Link>
           </div>
         </div>
         <div css={HeaderItem}>
           <div css={SearchBarStyle}>
             <input
               type='text'
-              placeholder='작품을 입력하세요...'
+              placeholder='제목을 입력하세요.'
               value={searchTerm}
               onChange={handleSearchChange}
             />
+            <img src={Search} alt='검색' />
             {suggestions.length > 0 && (
               <Dropdown suggestions={suggestions} onSuggestionClick={handleSuggestionClick} />
             )}
@@ -161,10 +202,11 @@ const Header: React.FC<HeaderProps> = ({ userName, onNotificationClick }) => {
               css={NotificationIconStyle}
               onClick={onNotificationClick || (() => alert('알림 버튼 클릭됨'))}
             >
-              🔔
+              <img src={Alert} alt='알림' />
             </button>
             <div css={ProfileStyle} title={userName || '사용자'}></div>
             <div>{userName || '사용자'}</div>
+            <img src={DownArrow} alt='펼치기' />
           </div>
         </div>
       </div>
