@@ -71,6 +71,10 @@ const GoogleLoginButton = css`
 `;
 
 const LoginPage: React.FC = () => {
+  const handleGoogleLogin = () => {
+    window.location.href = 'http://localhost:8080/auth/login/google';
+  };
+
   return (
     <div css={LoginContainer}>
       <div css={LoginHeader}>
@@ -82,7 +86,7 @@ const LoginPage: React.FC = () => {
       </div>
       <div css={LoginBox}>
         <h2>로그인 하기</h2>
-        <button css={GoogleLoginButton}>
+        <button css={GoogleLoginButton} onClick={handleGoogleLogin}>
           <img src={Google} alt='google icon' />
           Google로 계속하기
         </button>
