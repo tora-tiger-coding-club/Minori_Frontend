@@ -4,7 +4,11 @@ import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 
 const mock = new MockAdapter(axios, { delayResponse: 200 });
+<<<<<<< HEAD
 mock.onGet('/api/record/user_id').reply(200, [
+=======
+mock.onGet('/api/record/your_user_id').reply(200, [
+>>>>>>> 70756b6b2e4ddcf5492998e12b0c1eed8c3aeda7
   {
     record_id: 1,
     user_id: 1,
@@ -153,9 +157,16 @@ interface Anime {
 
 const AnimeList: React.FC = () => {
   const [animeList, setAnimeList] = useState<Anime[]>([]);
+<<<<<<< HEAD
   const userId = 'user_id'; 
 
   useEffect(() => {
+=======
+  const userId = 'your_user_id'; // 실제 user_id를 여기에 입력하세요.
+
+  useEffect(() => {
+    // API 호출하여 데이터 가져오기
+>>>>>>> 70756b6b2e4ddcf5492998e12b0c1eed8c3aeda7
     axios.get(`/api/record/${userId}`)
       .then(response => {
         setAnimeList(response.data);
@@ -165,6 +176,7 @@ const AnimeList: React.FC = () => {
       });
   }, [userId]);
 
+<<<<<<< HEAD
   const handleIncrement = (index: number) => {
     const updatedList = [...animeList];
     if (updatedList[index].episodesWatched < updatedList[index].totalEpisodes) {
@@ -173,6 +185,8 @@ const AnimeList: React.FC = () => {
     setAnimeList(updatedList);
   };
 
+=======
+>>>>>>> 70756b6b2e4ddcf5492998e12b0c1eed8c3aeda7
   return (
     <div className='container mt-4'>
       <table className='table table-striped'>
