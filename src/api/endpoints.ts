@@ -6,5 +6,6 @@ export const API_ENDPOINTS = {
   AUTH: {
     LOGIN_GOOGLE: '/auth/login/google',
     REFRESH: '/auth/refresh',
+    SIGNUP: '/user/signup',
   },
 } as const;

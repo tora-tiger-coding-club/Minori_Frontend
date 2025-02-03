@@ -3,6 +3,8 @@ import MyRecordPage from '../views/MyRecordPage';
 import ReviewPage from '../views/ReviewPage';
 import SearchPage from '../views/SearchPage';
 import LoginPage from '../views/LoginPage';
+import OauthRedirectPage from '@/views/OauthRedirectPage';
+import SignupPage from '@/views/SignupPage';
 
 const RouteList = [
   {
@@ -29,6 +31,16 @@ const RouteList = [
     path: '/login',
     name: 'login',
     component: LoginPage,
+  },
+  {
+    path: '/oauth/redirect',
+    name: 'oauth-redirect',
+    component: OauthRedirectPage,
+  },
+  {
+    path: '/signup',
+    name: 'signup',
+    component: SignupPage,
   },
 ];
 

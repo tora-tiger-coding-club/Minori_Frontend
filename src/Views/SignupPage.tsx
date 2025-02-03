@@ -1,17 +1,17 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
 import { css } from '@emotion/react';
-import Google from '@/assets/svgs/google.svg';
 import { COLORS } from '@/components/commons/styles/colors';
+import { useSignup } from '@/api/mutations/useSignup';
 
-const LoginContainer = css`
+const SignupContainer = css`
   margin-top: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 `;
-const LoginHeader = css`
+const SignupHeader = css`
   margin-bottom: 24px;
   display: flex;
   align-items: center;
@@ -28,7 +28,7 @@ const LoginHeader = css`
   }
 `;
 
-const LoginBox = css`
+const SignupBox = css`
   position: relative;
   display: flex;
   align-items: center;
@@ -46,53 +46,35 @@ const LoginBox = css`
     font-size: 15px;
   }
 `;
-const GoogleLoginButton = css`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 280px;
-  height: 48px;
-  background-color: ${COLORS.BACKGROUND.WHITE};
-  border: 1px solid ${COLORS.BORDER.DEFAULT};
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.2s;
 
-  &:hover {
-    background-color: ${COLORS.HOVER.GRAY};
-  }
+const SignupPage: React.FC = () => {
+  const { mutate: signup } = useSignup();
 
-  img {
-    width: 20px;
-    height: 20px;
-  }
-`;
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
 
-const LoginPage: React.FC = () => {
-  const handleGoogleLogin = () => {
-    window.location.href = 'http://localhost:8080/auth/login/google';
+    signup({
+      userId: 1,
+      username: 'test',
+      introduce: '자기소개임',
+    });
   };
 
   return (
-    <div css={LoginContainer}>
-      <div css={LoginHeader}>
+    <div css={SignupContainer}>
+      <div css={SignupHeader}>
         <h1>minori</h1>
         <h2>
           대충 멋진 케치프라이즈 <br />
           그것이 바로 미노리
         </h2>
       </div>
-      <div css={LoginBox}>
-        <h2>로그인 하기</h2>
-        <button css={GoogleLoginButton} onClick={handleGoogleLogin}>
-          <img src={Google} alt='google icon' />
-          Google로 계속하기
-        </button>
+      <div css={SignupBox}>
+        <h2>회원가입 하기</h2>
+        <button onClick={handleSubmit}>이걸 누르면 회원가입이 되어여</button>
       </div>
     </div>
   );
 };
 
-export default LoginPage;
+export default SignupPage;
